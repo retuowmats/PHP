@@ -1,9 +1,8 @@
-
-
+<!DOCTYPE html>
 <html>
     <head>
-    <title>Wouter Stam</title>
-    <meta charset='utf-8'>
+        <title>Wouter Stam</title>
+        <meta charset='utf-8'>
     </head>
 
     <body>
@@ -52,6 +51,6 @@
                 <input type='reset' value='Cancel'/>
             </p>
         </form>
-        <p>For a password hint, view source and find it in the comments.</p>
+        <p>For a password hint, view source and find it in the comments.</p> <!-- gg@umich.edu pw = 456 -->
     </body>
 </html>

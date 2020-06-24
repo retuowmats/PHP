@@ -2,6 +2,10 @@
     session_start();
     require_once 'pdo.php';
 
+    $salt = 'XyZzy12*_';
+    $stored_hash = '1a52e17fa899cf40fb04cfc42e6352f1';
+
+
     if (isset($_POST['email']) && isset($_POST['password'])) {
         unset ($_SESSION['email']);
 
@@ -21,22 +25,29 @@
             header("Location: login.php");
             return;
         }
-        elseif ( preg_match('/@/', $_POST['email'] ) < 1) {
+        if ( preg_match('/@/', $_POST['email'] ) < 1) {
             $_SESSION['error'] = "Email must have an at-sign (@)";
             header("Location: login.php");
             return;
         }
-        elseif ( $row === FALSE) {
+        if ( $row === FALSE) {
             error_log("Login fail ".$_POST['email']." ".$_POST['password']);
             echo '<p style="color:red;">Incorrect password</p>';
         }
-        elseif ( $_POST['password'] == 'php123') {
+        $check = hash('md5', $salt.$_POST['password']);
+        if ( $check == $stored_hash ) {
+			error_log("login.php, Login success ".$_POST['email']);
+            // Redirect the browser to game.php
+            header("Location: view.php?name=".urlencode($_POST['name']));
+			return;
+        }
+        /*elseif ( $_POST['password'] == 'php123') {
             error_log('Login success '.$_POST['email']);
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['success'] = 'Logged in';
             header('Location:view.php' );
             return;
-        }
+        } */
         else {
             $_SESSION['error'] = 'Incorrect password';
             header('Location:login.php' );

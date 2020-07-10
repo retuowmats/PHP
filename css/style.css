@@ -21,21 +21,33 @@ header {
 }
 
 main {
-    width: 1100px;   
+    width: 1100px;
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 article {
-    background-color:  rgb(238, 248, 246); ;
-    width: 100%;
-    max-height: 400px;
+    background-color:  rgb(238, 248, 246);
+    width: 30%;
+    height: 100%;
     display: inline-block;
     padding: 10px;
     margin: 5px;
     box-shadow: 2px 5px 10px rgba( 0, 0, 0, 0.3);
-    transition: box-shadow 0.5s, background 3s;
+    transition: box-shadow 0.5s, background 2s;
     transition-delay: 0.5s;
+    vertical-align: middle;
+    text-align: center;
+}
+
+main > #main > article {
+    background-color:  rgb(238, 248, 246); ;
+    width: 1059px;
+    height: 100%;
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
     vertical-align: middle;
     text-align: justify;
 }
@@ -45,7 +57,7 @@ article:hover {
     background: rgba(179, 172, 248, 0.438);
 }
 
-aside>img {
+img {
     height: 100px;
     width: 320px;
     background-size: cover;
@@ -54,9 +66,8 @@ aside>img {
 }
 
 footer {
-
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 40%;
-
+    margin-top: 20px;
 }
